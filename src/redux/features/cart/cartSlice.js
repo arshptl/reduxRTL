@@ -2,7 +2,7 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit"
 import axios from "axios";
 
 // - url to fetch cart items
-const url = "https://course-api.com/react-useReducer-cart-projecfsdfsdfsdfsdt"
+const url = "https://course-api.com/react-useReducer-cart-project"
 
 // - initial state for cartSlice
 const initialState = {
