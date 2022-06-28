@@ -70,7 +70,7 @@ const cartSlice = createSlice({
         [getCartItems.rejected]: (state, action) => {
             console.log(action)
             state.isLoading = false
-        }
+        },
     }
 
     // - Different approach to write the extraReducers
