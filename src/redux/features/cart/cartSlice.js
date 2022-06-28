@@ -24,7 +24,6 @@ export const getCartItems = createAsyncThunk(
         } catch (error) {
             return thunkAPI.rejectWithValue('Somthing went wrong')
         }
-
         // - Promise method
         // return fetch(url).then(resp => resp.json()).catch((err) => console.log(err));
     }
@@ -73,6 +72,21 @@ const cartSlice = createSlice({
             state.isLoading = false
         }
     }
+
+    // - Different approach to write the extraReducers
+    // extraReducers: builder => {
+    //     builder.addCase(getCartItems.pending, state => {
+    //         state.isLoading = true
+    //     })
+    //     builder.addCase(getCartItems.fulfilled, (state, action) => {
+    //         console.log(action)
+    //         state.isLoading = false
+    //         state.cartItems = action.payload
+    //     })
+    //     builder.addCase(getCartItems.rejected, (state, action) => {
+    //         state.isLoading = false
+    //     })
+    // }
 })
 
 // export the actions
