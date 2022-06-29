@@ -13,7 +13,7 @@ const initialState = {
 }
 
 export const getCartItems = createAsyncThunk(
-    'cart/getCartItems', async (name, thunkAPI) => {
+    'cart/getCartItems', async (thunkAPI) => {
         // console.log(name)
         // console.log(thunkAPI);
         // console.log(thunkAPI.getState())
@@ -50,7 +50,7 @@ const cartSlice = createSlice({
         calculateTotal: (state) => {
             let amount = 0
             let total = 0
-            state.cartItems.forEach((item) => {
+            state.cartItems?.forEach((item) => {
                 amount += item.amount
                 total += item.amount * item.price
             })
@@ -63,12 +63,11 @@ const cartSlice = createSlice({
             state.isLoading = true
         },
         [getCartItems.fulfilled]: (state, action) => {
-            console.log(action)
             state.isLoading = false
             state.cartItems = action.payload
         },
         [getCartItems.rejected]: (state, action) => {
-            console.log(action)
+            // console.log(action)
             state.isLoading = false
         },
     }
