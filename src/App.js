@@ -16,7 +16,7 @@ function App() {
   }, [cartItems]);
 
   useEffect(() => {
-    dispatch(getCartItems("testing"));
+    dispatch(getCartItems());
   }, [])
 
   if (isLoading) {
